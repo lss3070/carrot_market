@@ -3,7 +3,7 @@ import Link from "next/link";
 import { cls } from "../libs/utils";
 import { useRouter } from "next/router";
 
-interface LayoutProps {
+export interface LayoutProps {
   title?: string;
   canGoBack?: boolean;
   hasTabBar?: boolean;
@@ -15,6 +15,7 @@ export default function Layout({
   canGoBack,
   hasTabBar,
   children,
+  
 }: LayoutProps) {
   const router = useRouter();
   const onClick = () => {

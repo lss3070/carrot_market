@@ -3,6 +3,7 @@ import { useState } from "react";
 import Button from "../components/button";
 import Input from "../components/input";
 import { cls } from "../libs/utils";
+import { InputKind } from '../components/input';
 
 const Enter: NextPage = () => {
   const [method, setMethod] = useState<"email" | "phone">("email");
@@ -48,7 +49,7 @@ const Enter: NextPage = () => {
               name="phone"
               label="Phone number"
               type="number"
-              kind="phone"
+              kind={InputKind.phone}
               required
             />
           ) : null}

@@ -1,4 +1,5 @@
 import '../styles/globals.css'
+import { BrowserRouter } from 'react-router-dom'
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -9,3 +10,17 @@ export const parameters = {
     },
   },
 }
+// export const decorators = [
+//   (Story) => (
+//     <ThemeProvider theme={defaultTheme}>
+//     <GlobalStyle />
+//     <Router>
+//       <Switch>
+//         <Route path="*">
+//           <Story />
+//         </Route>
+//       </Switch>
+//     </Router>
+//   </ThemeProvider>
+//   ),
+// ]
