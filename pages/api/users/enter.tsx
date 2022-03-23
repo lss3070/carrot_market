@@ -3,6 +3,7 @@ import next, { NextApiRequest, NextApiResponse } from 'next';
 import withHandler, { IResponseType } from '@libs/server/withHandler';
 import { client } from '@libs/client/client';
 import {createTransport} from 'nodemailer'
+import { isPromise } from 'util/types';
 
 
 const twilioClient=twilio(process.env.TWILIO_MSID,
@@ -105,5 +106,9 @@ async function handler(
     return res.json({ok:true});
 }
 
-export default withHandler("POST",handler);
+export default withHandler({
+    method:"POST",
+    handler,
+    isPrivate:false
+});
 
