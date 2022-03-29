@@ -34,7 +34,7 @@ async function handler(
                 }
             }    
     });
-
+console.log(token);
     console.log('!!')
     if(phone){
         const message= await twilioClient.messages.create({
@@ -64,50 +64,12 @@ async function handler(
         .then(send=>send)
         .catch(err=>next(err))
     }
-        console.log(token);
-
-
-    // if(email){
-    //         user = await client.user.findUnique({
-    //         where:{
-    //             email,
-    //         }
-    //     });
-    //     if(user){
-    //         console.log('found it.')
-    //     }
-    //     if(!user){
-    //         console.log("Did not find. Will create")
-    //         user = await client.user.create({
-    //             data:{
-    //                 name:"Anonymous",
-    //                 email,
-    //             }
-    //         })
-    //     }
-    // }
-    // if(phone){
-    //     user = await client.user.findUnique({
-    //         where:{
-    //             phone:+phone
-    //         }
-    //     });
-    //     if(!user){
-    //         console.log('~')
-    //         user = await client.user.create({
-    //             data:{
-    //                 name:'Anonymous',
-    //                 phone:+phone,
-    //             }
-    //         })
-    //     }
-    // }
 
     return res.json({ok:true});
 }
 
 export default withHandler({
-    method:"POST",
+    methods:["GET","POST"],
     handler,
     isPrivate:false
 });
