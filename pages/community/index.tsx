@@ -1,9 +1,14 @@
 import type { NextPage } from "next";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import FloatingButton from "../../components/floating-button";
 import Layout from "../../components/layout";
+import useSWR from 'swr';
 
 const Community: NextPage = () => {
+
+  const router = useRouter();
+  const {data,error}=useSWR(router.query.id?`/api/posts/${router.query.id}`:null);
   return (
     <Layout hasTabBar title="동네생활">
       <div className="space-y-4 divide-y-[2px]">
