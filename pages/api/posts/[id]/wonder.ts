@@ -15,7 +15,6 @@ async function handler(
     res:NextApiResponse<IResponseType>
 ){
    const {query:{id},session:{user}}=req;
-   
 
    const alreadyExists = await client.wondering.findFirst({
     where:{
@@ -25,7 +24,9 @@ async function handler(
     select:{
         id:true
     }
-})
+});
+console.log('!@');
+console.log(alreadyExists)
 
     if(alreadyExists){
         await client.wondering.delete({
@@ -49,13 +50,10 @@ async function handler(
             }
         });
     }
-
-
    res.json({
        ok:true
    })
 }
-
 
 
 export default withApiSession(withHandler({

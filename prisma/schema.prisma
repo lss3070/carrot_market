@@ -1,7 +1,6 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
-
 generator client {
   provider = "prisma-client-js"
   previewFeatures = ["referentialIntegrity"]
@@ -66,6 +65,8 @@ model Post{
   userId    Int
   answers   Answer[]
   wonderings  Wondering[]
+  latitude  Float?
+  longitude Float?
   question  String    @db.MediumText
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
